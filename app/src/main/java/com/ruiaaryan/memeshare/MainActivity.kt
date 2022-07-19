@@ -3,6 +3,7 @@ package com.ruiaaryan.memeshare
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
@@ -18,8 +19,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val srn = findViewById<EditText>(R.id.subredditName)
         val n = findViewById<Button>(R.id.nextButton)
         val pbar = findViewById<ProgressBar>(R.id.progressBar)
+        srn.setOnEditorActionListener{
+            _, actionId, _ ->
+            if(actionId == EditorInfo.IME_ACTION_DONE) {
+                load()
+                true
+            }
+            false
+        }
         pbar.isVisible = false
         n.setOnClickListener {
             load()
