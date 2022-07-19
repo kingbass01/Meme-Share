@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enter_subreddit_name">Enter Subreddit Name</string>
+    <string name="share">SHARE</string>
+    <string name="next">NEXT</string>
+</resources>
